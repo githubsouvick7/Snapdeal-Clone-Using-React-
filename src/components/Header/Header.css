@@ -1,0 +1,32 @@
+.section {
+    width: 100vw;
+    height: 4vh;
+    background-color: rgb(199, 54, 83);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.class-two {
+    width: 50%;
+}
+
+.class-two ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.class-two ul li {
+    list-style: none;
+    padding: 2px 12px;
+    margin-top: 8px;
+}
+
+.class-one {
+    margin-left: 120px;
+    width: 30%;
+    margin-top: 8px;
+    padding: 0 12px;
+    margin-bottom: 12px;
+}

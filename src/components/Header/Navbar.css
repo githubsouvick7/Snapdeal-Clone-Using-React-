@@ -1,0 +1,83 @@
+.section-navbar {
+    background-color: #e40046;
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.search {
+    width: 50%;
+}
+
+.search .input {
+    padding: 10px;
+    width: 70%;
+    outline: none;
+    border: none;
+
+}
+
+.search .onebtn {
+    padding: 9px 12px;
+    width: 150px;
+    background-color: rgb(26, 19, 19);
+    color: white;
+    font-size: 16px;
+}
+
+.extra {
+    width: 20%;
+    height: 65%;
+    display: flex;
+    justify-content: flex-start;
+    border-left: 1px solid black;
+}
+
+.extra .cart {
+    height: 100%;
+    width: 30%;
+    border-right: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.cart span {
+    margin-right: 8px;
+}
+
+.extra .signin {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.signin .set {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(199, 54, 83);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.signin span {
+    cursor: pointer;
+}
