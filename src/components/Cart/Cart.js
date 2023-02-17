@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../Context/Context'
 import './Cart.css'
-import CartNavbar from './CartNavbar';
+import { NavLink } from 'react-router-dom';
 
 
 const Cart = () => {
@@ -10,10 +10,37 @@ const Cart = () => {
     const state = GlobalState.state;
     const dispatch = GlobalState.dispatch;
 
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+        let count = 0;
+        state.map((i) => {
+            count += i.price;
+        })
+        setTotalPrice(count);
+    }, [])
+
 
     return (
         <>
-            <CartNavbar />
+            <div className="cartNavbar">
+                <div className='complogo'>
+                    <img src="https://i3.sdlcdn.com/img/snapdeal/darwin/logo/sdLatestLogo.svg" />
+                </div>
+            </div>
+            <div className="totalall">
+                <div className="total">
+                    <div className="secondnav">
+                        <NavLink to='/'>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </NavLink>
+                    </div>
+                    <div className="tt">
+                        <p className='t'>Total - </p>
+                        <p className='t'> ${totalPrice} </p>
+                    </div>
+                </div>
+            </div>
             <div className='container my-5'>
                 {
                     state.map((item, index) => {
@@ -33,6 +60,7 @@ const Cart = () => {
                     })
                 }
             </div>
+
         </>
     )
 }

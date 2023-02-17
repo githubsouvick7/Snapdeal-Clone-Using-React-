@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
-import CartNavbar from '../Cart/CartNavbar';
 import './FullData.css'
 import { useContext } from 'react';
 import { CartContext } from '../Context/Context';
@@ -14,6 +13,7 @@ const FullData = () => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [allData, setallData] = useState("");
+
 
     const getMovies = async (url) => {
         try {
@@ -76,7 +76,6 @@ const FullData = () => {
                 </div>
             </section>
         </>
-
     );
 }
 

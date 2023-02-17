@@ -9,6 +9,11 @@ const api = `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/prod
 
 const Product = () => {
     const [eData, seteData] = useState([]);
+    const [isToggled, setIsToggled] = useState(false);
+
+    const handleClick = () => {
+        setIsToggled(!isToggled);
+    };
 
     const getData = () => {
         fetch(api)
@@ -43,14 +48,12 @@ const Product = () => {
                                             <h5>{fullName}</h5>
                                             <p>RS : ${price}</p>
                                             <button className="btn" onClick={() => disp({ type: 'ADD', paylode: item })}>
-                                                Add to Cart
+                                                Add To Cart <i class="fa-solid fa-cart-shopping"></i>
                                             </button>
                                         </div>
                                     </div>
-
                                 </>
                             )
-
                         })
                     }
                 </div>

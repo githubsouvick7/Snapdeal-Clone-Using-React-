@@ -36,20 +36,26 @@ const Navbar = () => {
                     <div className="signin">
                         {
                             isAuthenticated ? (
-                                <button className='set' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                                    Log Out
-                                </button>
+                                <>
+                                    <button className='set' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                                        Log Out
+                                    </button>
+                                    <Tippy content={<div>
+                                        {user.name} <br />
+                                        {user.email}
+                                    </div>}>
+                                        <div className="setuser">
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                    </Tippy>
+                                </>
                             ) : (
                                 <button className='set' onClick={() => loginWithRedirect()}>
                                     Login
                                 </button>
                             )
                         }
-                        <Tippy content={<h1>name</h1>}>
-                            <div className="setuser">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                        </Tippy>
+
                     </div>
                 </div>
             </section>
