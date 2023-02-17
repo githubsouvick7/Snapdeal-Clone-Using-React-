@@ -1,0 +1,26 @@
+.container {
+    background-color: rgb(255, 255, 255);
+}
+
+.onecomp {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid gray;
+    padding: 20px;
+    margin: 12px;
+}
+
+.onecomp img {
+    width: 150px;
+    height: 150px;
+}
+
+.desccomp {
+    width: 50%;
+}
+
+.dele {
+    margin-right: 30px;
+    margin-top: 40px;
+    cursor: pointer;
+}

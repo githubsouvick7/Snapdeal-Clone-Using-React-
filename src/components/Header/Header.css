@@ -1,5 +1,5 @@
 .section {
-    width: 100vw;
+    width: 99.1vw;
     height: 4vh;
     background-color: rgb(199, 54, 83);
     color: white;
@@ -8,7 +8,7 @@
 }
 
 .class-two {
-    width: 50%;
+    width: 70%;
 }
 
 .class-two ul {
@@ -29,4 +29,33 @@
     margin-top: 8px;
     padding: 0 12px;
     margin-bottom: 12px;
+}
+
+@media (max-width: 1000px) {
+    .section {
+        width: 100vw;
+        height: 6vh;
+        background-color: rgb(199, 54, 83);
+        color: white;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .class-two {
+        width: 80%;
+    }
+
+    .class-two ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .class-one {
+        margin-left: 12px;
+        width: 20%;
+        margin-top: 8px;
+        padding: 0 12px;
+        margin-bottom: 12px;
+    }
 }
