@@ -54,11 +54,11 @@
     color: rgb(163, 13, 13);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
     .dispproduct {
         margin: 8%;
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: auto auto auto;
     }
 
     .compcard {

@@ -11,3 +11,7 @@
 .maincomp {
     display: flex;
 }
+
+.nav-all {
+    width: 99vw;
+}
