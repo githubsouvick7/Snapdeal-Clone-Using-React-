@@ -8,10 +8,6 @@
     grid-template-columns: auto auto auto auto auto;
 }
 
-.maincomp {
-    display: flex;
-}
-
 .nav-all {
     width: 99vw;
 }

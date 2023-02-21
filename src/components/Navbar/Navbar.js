@@ -34,37 +34,35 @@ const Navbar = () => {
                                 </Tippy>
                             </NavLink>
                         </div>
-                        <div className="signin">
-                            {
-                                isAuthenticated ? (
-                                    <>
-                                        <button className='set' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                                            Log Out
-                                        </button>
-                                        <Tippy content={<div>
-                                            {user.name} <br />
-                                            {user.email}
-                                        </div>}>
-                                            <div className="setuser">
-                                                {/* <i class="fa-solid fa-user"></i> */}
-                                                <img src={user.picture} width={50} />
-                                            </div>
-                                        </Tippy>
-                                    </>
-                                ) : (
-                                    <>
-                                        <button className='set' onClick={() => loginWithRedirect()}>
-                                            Login
-                                        </button>
-                                        <Tippy content={<p>No User Found</p>}>
-                                            <div className="setuser">
-                                                <i class="fa-solid fa-user"></i>
-                                            </div>
-                                        </Tippy>
-                                    </>
-                                )
-                            }
-                        </div>
+                        {
+                            isAuthenticated ? (
+                                <>
+                                    <button className='set' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                                        Log Out
+                                    </button>
+                                    <Tippy content={<div>
+                                        {user.name} <br />
+                                        {user.email}
+                                    </div>}>
+                                        <div className="setuser">
+                                            {/* <i class="fa-solid fa-user"></i> */}
+                                            <img src={user.picture} width={50} />
+                                        </div>
+                                    </Tippy>
+                                </>
+                            ) : (
+                                <>
+                                    <button className='set' onClick={() => loginWithRedirect()}>
+                                        Login
+                                    </button>
+                                    <Tippy content={<p>No User Found</p>}>
+                                        <div className="setuser">
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                    </Tippy>
+                                </>
+                            )
+                        }
                     </div>
                 </div>
                 <div className="menu">

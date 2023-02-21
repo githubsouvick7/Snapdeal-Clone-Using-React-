@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useReducer } from 'react'
 import { CartContext } from '../Context/Context'
 import './Cart.css'
 import { NavLink } from 'react-router-dom';
@@ -12,13 +12,25 @@ const Cart = () => {
 
     const [totalPrice, setTotalPrice] = useState(0);
 
+    function reducer(state, action) {
+        switch (action.type) {
+            case 'INCREMENT':
+                return { count: state.count + 1 };
+            case 'DECREMENT':
+                return { count: state.count - 1 };
+            default:
+                throw new Error();
+        }
+    }
+    const [state1, dispatch1] = useReducer(reducer, { count: 1 });
+
     useEffect(() => {
         let count = 0;
         state.map((i) => {
             count += i.price;
         })
         setTotalPrice(count);
-    }, [])
+    }, [state])
 
 
     return (
@@ -41,6 +53,7 @@ const Cart = () => {
                     </div>
                 </div>
             </div>
+
             <div className='container my-5'>
                 {
                     state.map((item, index) => {
@@ -52,6 +65,11 @@ const Cart = () => {
                                     <p>Rating : {item.rating.rate}</p>
                                     <h4>${item.price}</h4>
                                 </div>
+                                <div className="count">
+                                    <button onClick={() => dispatch1({ type: 'INCREMENT', paylode: item })}>+</button>
+                                    <span>{state1.count}</span>
+                                    <button onClick={() => dispatch1({ type: 'DECREMENT', paylode: item })}>-</button>
+                                </div>
                                 <h1 className='dele' onClick={() => dispatch({ type: 'REMOVE', paylode: item })}>
                                     <i class="fa-solid fa-trash"></i>
                                 </h1>
@@ -59,6 +77,10 @@ const Cart = () => {
                         )
                     })
                 }
+
+                <NavLink to={{ pathname: '/buyNow', state: { price: totalPrice } }}>
+                    <button className='btn'>Buy Now for $ {totalPrice}</button>
+                </NavLink>
             </div>
 
         </>

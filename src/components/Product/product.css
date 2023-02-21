@@ -1,14 +1,10 @@
-.main {
-    width: 70%;
-}
-
 .compcard {
     display: flex;
     width: 100vw;
 }
 
 .btn {
-    background-color: #4c4c50;
+    background-color: #e40046;
     color: #ffffff;
     border-radius: 6px;
     padding: 7px 12px;
@@ -18,14 +14,16 @@
 }
 
 .btn:hover {
-    border: 2px solid #070630;
-    box-shadow: 7px 7px 12px gray;
+    border: 2px solid #e40046;
+    box-shadow: 4px 4px 8px rgb(201, 200, 200);
+    color: #e40046;
 }
 
 .dispproduct {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    margin: 0 10%;
+    justify-content: center;
+    margin: 0 2%;
 }
 
 .compcard {
@@ -41,10 +39,12 @@
     padding: 18px;
     transform: scale(1);
     transition: .5s;
+    box-shadow: 2px 2px 4px gray;
 }
 
 .compcard:hover {
     transform: scale(1.1);
+    box-shadow: 7px 7px 12px gray;
 }
 
 .wish {
@@ -54,9 +54,8 @@
     color: rgb(163, 13, 13);
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1800px) {
     .dispproduct {
-        margin: 8%;
         display: grid;
         grid-template-columns: auto auto auto;
     }
@@ -66,18 +65,18 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1280px) {
     .dispproduct {
-        margin: 6%;
         display: grid;
         grid-template-columns: auto auto;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 720px) {
     .dispproduct {
-        margin: 4%;
         display: grid;
         grid-template-columns: auto;
+        justify-content: center;
     }
+
 }

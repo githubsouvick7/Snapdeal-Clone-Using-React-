@@ -15,7 +15,7 @@ const FullData = () => {
     const [allData, setallData] = useState("");
 
 
-    const getMovies = async (url) => {
+    const getDatas = async (url) => {
         try {
             console.log(url)
             const res = await fetch(url);
@@ -29,7 +29,7 @@ const FullData = () => {
     };
 
     useEffect(() => {
-        getMovies(`${apikey}/${id}`)
+        getDatas(`${apikey}/${id}`)
     }, [id])
 
     const GlobalState = useContext(CartContext);
@@ -65,9 +65,6 @@ const FullData = () => {
                             <button className="btn" onClick={() => disp({ type: 'ADD', paylode: allData })}>
                                 Add to Cart<i class="fa-solid fa-cart-shopping"></i>
                             </button>
-                            <NavLink to='/'>
-                                <button className='btn'>Buy Now</button>
-                            </NavLink>
                             <NavLink to="/" className="back-btn">
                                 <button className="btn"><i class="fa-solid fa-arrow-left"></i> Go Back</button>
                             </NavLink>

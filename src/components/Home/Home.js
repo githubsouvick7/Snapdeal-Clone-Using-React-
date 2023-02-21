@@ -11,7 +11,6 @@ const Home = () => {
                 <Navbar />
             </div>
             <div className="maincomp">
-                {/* <Categories /> */}
                 <Product />
             </div>
 

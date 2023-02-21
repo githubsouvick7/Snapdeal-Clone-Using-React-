@@ -11,12 +11,7 @@ const api = `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/prod
 
 const Product = () => {
     const [eData, seteData] = useState([]);
-    const [isToggled, setIsToggled] = useState(false);
     const { isAuthenticated, user } = useAuth0();
-
-    const handleClick = () => {
-        setIsToggled(!isToggled);
-    };
 
     const getData = () => {
         fetch(api)
@@ -32,6 +27,7 @@ const Product = () => {
     const disp = GlobalState.dispatch;
     console.log(GlobalState);
 
+
     return (
         <>
             <div className="main">
@@ -40,6 +36,7 @@ const Product = () => {
                         eData.map(item => {
                             const { title, price, image, id } = item;
                             const fullName = title.substring(0, 20);
+                            const Added = () => disp({ type: 'ADD', paylode: item })
                             return (
                                 <>
                                     <div className='compcard'>
@@ -51,7 +48,7 @@ const Product = () => {
                                             <h5>{fullName}</h5>
                                             <p>RS : ${price}</p>
                                             {
-                                                isAuthenticated ? (<button className="btn" onClick={() => disp({ type: 'ADD', paylode: item })}>
+                                                isAuthenticated ? (<button className="btn" onClick={Added}>
                                                     Add To Cart <i class="fa-solid fa-cart-shopping"></i>
                                                 </button>) : (
                                                     <button className="btn" onClick={() => alert("Please Login")}>

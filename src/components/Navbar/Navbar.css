@@ -41,10 +41,7 @@
 }
 
 .extra {
-    width: 60%;
-    height: 65%;
     display: flex;
-    justify-content: center;
 }
 
 .extra .cart {
@@ -62,16 +59,8 @@
     margin-right: 8px;
 }
 
-.extra .signin {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 18px;
-}
 
-.signin .set {
+.set {
     width: 100px;
     height: 45px;
     background-color: rgb(173, 39, 84);
@@ -85,16 +74,13 @@
     transition: 0.5s;
 }
 
-.signin {
-    margin-left: 20px;
-}
 
 .set:hover {
     background-color: #e40046;
     border: 2px solid rgb(52, 39, 173);
 }
 
-.signin span {
+.cart span {
     cursor: pointer;
 }
 
@@ -136,6 +122,7 @@
     border-radius: 50%;
     font-size: 20px;
     margin-left: 22px;
+    cursor: pointer;
 }
 
 .setuser img {
@@ -151,7 +138,7 @@
 @media (max-width: 1400px) {
     .section-navbar {
         background-color: #e40046;
-        width: 100%;
+        width: 100vw;
         height: 80px;
         display: flex;
         align-items: center;
@@ -160,6 +147,10 @@
 
     .extra .cart {
         width: 50%;
+    }
+
+    .search {
+        display: flex;
     }
 
     .search .input {
@@ -186,19 +177,8 @@
     }
 }
 
-@media (max-width: 600px) {
-    .section-navbar {
-        background-color: #e40046;
-        width: 99.1vw;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
 
-}
-
-@media (max-width: 400px) {
+@media (max-width: 720px) {
     .section-navbar {
         background-color: #e40046;
         width: 100vw;
@@ -217,14 +197,18 @@
         display: none;
     }
 
-    .menu {
-        display: block;
-    }
-
     .allmenu {
 
         display: flex;
         align-items: center;
+    }
+
+    .extra {
+        margin-right: 12px;
+    }
+
+    .logo {
+        margin-left: 18px;
     }
 
 
