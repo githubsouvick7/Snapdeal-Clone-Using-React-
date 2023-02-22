@@ -36,7 +36,7 @@ const Product = () => {
                         eData.map(item => {
                             const { title, price, image, id } = item;
                             const fullName = title.substring(0, 20);
-                            const Added = () => disp({ type: 'ADD', paylode: item })
+                            const Added = () => disp({ type: 'ADD', payload: item })
                             return (
                                 <>
                                     <div className='compcard'>

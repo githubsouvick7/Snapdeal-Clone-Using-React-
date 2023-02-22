@@ -66,11 +66,11 @@ const Cart = () => {
                                     <h4>${item.price}</h4>
                                 </div>
                                 <div className="count">
-                                    <button onClick={() => dispatch1({ type: 'INCREMENT', paylode: item })}>+</button>
+                                    <button onClick={() => dispatch1({ type: 'INCREMENT', payload: item })}>+</button>
                                     <span>{state1.count}</span>
-                                    <button onClick={() => dispatch1({ type: 'DECREMENT', paylode: item })}>-</button>
+                                    <button onClick={() => dispatch1({ type: 'DECREMENT', payload: item })}>-</button>
                                 </div>
-                                <h1 className='dele' onClick={() => dispatch({ type: 'REMOVE', paylode: item })}>
+                                <h1 className='dele' onClick={() => dispatch({ type: 'REMOVE', payload: item })}>
                                     <i class="fa-solid fa-trash"></i>
                                 </h1>
                             </div>

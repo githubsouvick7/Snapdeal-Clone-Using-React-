@@ -62,7 +62,7 @@ const FullData = () => {
                             <p className="card-text">About :-{allData.description}</p>
                         </div>
                         <div className="allbtn">
-                            <button className="btn" onClick={() => disp({ type: 'ADD', paylode: allData })}>
+                            <button className="btn" onClick={() => disp({ type: 'ADD', payload: allData })}>
                                 Add to Cart<i class="fa-solid fa-cart-shopping"></i>
                             </button>
                             <NavLink to="/" className="back-btn">
