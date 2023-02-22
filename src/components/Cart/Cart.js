@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useReducer } from 'react'
 import { CartContext } from '../Context/Context'
 import './Cart.css'
 import { NavLink } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const Cart = () => {
@@ -11,6 +12,7 @@ const Cart = () => {
     const dispatch = GlobalState.dispatch;
 
     const [totalPrice, setTotalPrice] = useState(0);
+    const { isAuthenticated, user } = useAuth0();
 
     function reducer(state, action) {
         switch (action.type) {
@@ -78,9 +80,20 @@ const Cart = () => {
                     })
                 }
 
-                <NavLink to={{ pathname: '/buyNow', state: { price: totalPrice } }}>
-                    <button className='btn'>Buy Now for $ {totalPrice}</button>
-                </NavLink>
+                {
+                    isAuthenticated ? (
+                        <>
+                            <NavLink to={{ pathname: '/buyNow', state: { price: totalPrice } }}>
+                                <button className='btn'>Buy Now for $ {totalPrice}</button>
+                            </NavLink>
+                        </>
+
+                    ) : (
+                        <>
+                            <button className='btn' onClick={() => alert("Please Login . . .")}>Buy Now for $ {totalPrice}</button>
+                        </>
+                    )
+                }
             </div>
 
         </>
