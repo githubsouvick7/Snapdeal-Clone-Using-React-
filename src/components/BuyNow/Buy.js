@@ -9,7 +9,7 @@ const Buy = (props) => {
     const { isAuthenticated, user } = useAuth0();
     const [msg, setMsg] = useState('');
     const showMsg = () => {
-        setMsg("Your Order successfully Done . . .")
+        setMsg(`${user.name} Your Order successfully Done . . .`)
     }
 
     return (
@@ -72,7 +72,7 @@ const Buy = (props) => {
                     </div>
                     <div className="name">
                         <button className="btn" onClick={showMsg}>Order Now</button>
-                        <span>{msg}</span>
+                        <span style={{ marginLeft: 20 }}>{msg}</span>
                     </div>
                 </from>
             </div>
