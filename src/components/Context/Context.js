@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import { act } from "react-dom/test-utils";
+
 
 export const CartContext = createContext();
 

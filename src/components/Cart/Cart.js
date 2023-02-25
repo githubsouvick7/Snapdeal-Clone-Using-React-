@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState, useReducer } from 'react'
 import { CartContext } from '../Context/Context'
-import './Cart.css'
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
+import './Cart.css'
 
 
 const Cart = () => {
@@ -11,6 +11,7 @@ const Cart = () => {
     const state = GlobalState.state;
     const dispatch = GlobalState.dispatch;
 
+    const [state1, dispatch1] = useReducer(reducer, { count: 1 });
     const [totalPrice, setTotalPrice] = useState(0);
     const { isAuthenticated, user } = useAuth0();
 
@@ -24,7 +25,6 @@ const Cart = () => {
                 throw new Error();
         }
     }
-    const [state1, dispatch1] = useReducer(reducer, { count: 1 });
 
     useEffect(() => {
         let count = 0;
