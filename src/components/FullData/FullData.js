@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
-import './FullData.css'
 import { useContext } from 'react';
 import { CartContext } from '../Context/Context';
-import Navbar from '../Navbar/Navbar';
 import { useAuth0 } from "@auth0/auth0-react";
+import Navbar from '../Navbar/Navbar';
+import './FullData.css'
 
 const apikey = `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`
 
@@ -69,7 +69,6 @@ const FullData = () => {
                             <p className="card-text">Rating out of 10 is {allData.rating.rate}/10</p>
                             <p className="card-text">Rating given by {allData.rating.count} people</p>
                             <p className="card-text">About :-{allData.description}</p>
-
                         </div>
                         <div className="allbtn">
                             <h5>Delivery Charge - $10 for fast delivery (Click to Add)

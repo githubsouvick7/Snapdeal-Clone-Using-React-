@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 
-
 export const CartContext = createContext();
 
 export const Context = (props) => {
@@ -20,11 +19,9 @@ export const Context = (props) => {
 
             default: return state;
         }
-
     }
     const [state, dispatch] = useReducer(reducer, [])
     const info = { state, dispatch };
-
 
     return (
         <CartContext.Provider value={info}>
@@ -32,3 +29,4 @@ export const Context = (props) => {
         </CartContext.Provider>
     )
 }
+

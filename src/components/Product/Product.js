@@ -11,7 +11,7 @@ const api = `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/prod
 
 const Product = () => {
     const [eData, seteData] = useState([]);
-    const { isAuthenticated, user } = useAuth0();
+    const { isAuthenticated } = useAuth0();
 
     const getData = () => {
         fetch(api)
@@ -33,7 +33,7 @@ const Product = () => {
             <div className="main">
                 <div className="dispproduct">
                     {
-                        eData.map(item => {
+                        eData.map((item) => {
                             const { title, price, image, id } = item;
                             const fullName = title.substring(0, 20);
                             const Added = () => disp({ type: 'ADD', payload: item })
