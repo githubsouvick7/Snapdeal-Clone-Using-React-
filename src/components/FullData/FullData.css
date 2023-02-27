@@ -34,7 +34,6 @@
 }
 
 .allbtn {
-
     margin-bottom: 20px;
 }
 
@@ -52,4 +51,28 @@
     border-radius: 50%;
     margin: 14px 12px;
     background: #e40046;
+}
+
+@media (max-width: 1400px) {
+    .comp-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .comp-card .listimage {
+        width: 200px;
+        height: 200px;
+    }
+
+    .comp-section {
+        margin-left: 15px;
+        margin-top: 7px;
+        width: 95%;
+    }
+
+    .card-content {
+        margin-left: 10px;
+        margin-top: 30px;
+    }
 }

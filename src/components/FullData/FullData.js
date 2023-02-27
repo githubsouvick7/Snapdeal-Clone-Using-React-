@@ -59,7 +59,7 @@ const FullData = () => {
             <section className="comp-section">
                 <div className="comp-card">
                     <figure>
-                        <img width={200} src={allData.image} className='listimage' alt='image' />
+                        <img src={allData.image} className='listimage' alt='image' />
                     </figure>
                     <div className="card-content">
                         <div className="allbtn">

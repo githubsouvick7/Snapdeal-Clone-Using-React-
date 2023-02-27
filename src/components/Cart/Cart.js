@@ -14,6 +14,9 @@ const Cart = () => {
     const [state1, dispatch1] = useReducer(reducer, { count: 1 });
     const [totalPrice, setTotalPrice] = useState(0);
     const { isAuthenticated, user } = useAuth0();
+    const [bugPrice, setBugPrice] = useState();
+
+
 
     function reducer(state, action) {
         switch (action.type) {
@@ -25,9 +28,8 @@ const Cart = () => {
                 throw new Error();
         }
     }
-
+    let count = 0;
     useEffect(() => {
-        let count = 0;
         state.map((i) => {
             count += i.price;
         })
@@ -51,14 +53,14 @@ const Cart = () => {
                     </div>
                     <div className="tt">
                         <p className='t'>Total - </p>
-                        <p className='t'> ${totalPrice} </p>
+                        <p className='t'> ${totalPrice}</p>
                     </div>
                 </div>
             </div>
 
             <div className='container my-5'>
                 {
-                    state.map((item, index) => {
+                    state.map((item) => {
                         return (
                             <div className="onecomp">
                                 <img src={item.image} alt="snapdeal" />

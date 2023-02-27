@@ -22,11 +22,9 @@ const Product = () => {
         getData();
     }, [])
 
-
     const GlobalState = useContext(CartContext);
     const disp = GlobalState.dispatch;
     console.log(GlobalState);
-
 
     return (
         <>
@@ -36,7 +34,9 @@ const Product = () => {
                         eData.map((item) => {
                             const { title, price, image, id } = item;
                             const fullName = title.substring(0, 20);
-                            const Added = () => disp({ type: 'ADD', payload: item })
+                            const Added = () => {
+                                disp({ type: 'ADD', payload: item })
+                            }
                             return (
                                 <>
                                     <div className='compcard'>

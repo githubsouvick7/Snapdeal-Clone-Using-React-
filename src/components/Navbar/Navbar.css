@@ -185,7 +185,6 @@
         height: 80px;
         display: flex;
         align-items: center;
-        justify-content: center;
     }
 
     .search .input {
@@ -198,9 +197,10 @@
     }
 
     .allmenu {
-
         display: flex;
         align-items: center;
+        width: 60%;
+        margin-left: 10px;
     }
 
     .extra {
@@ -209,6 +209,11 @@
 
     .logo {
         margin-left: 18px;
+        width: 30%;
+    }
+
+    .setuser {
+        margin-left: 0;
     }
 
 

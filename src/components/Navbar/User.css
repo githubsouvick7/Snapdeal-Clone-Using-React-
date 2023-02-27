@@ -1,0 +1,18 @@
+.box {
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.image img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}

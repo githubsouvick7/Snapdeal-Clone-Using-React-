@@ -7,7 +7,6 @@ import Home from './Components/Home/Home';
 import Buy from './Components/BuyNow/Buy'
 
 
-
 const App = () => {
   return (
     <>

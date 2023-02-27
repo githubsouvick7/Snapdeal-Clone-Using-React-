@@ -4,6 +4,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
+import User from './User';
 
 
 const Navbar = () => {
@@ -40,12 +41,8 @@ const Navbar = () => {
                                     <button className='set' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
                                         Log Out
                                     </button>
-                                    <Tippy content={<div>
-                                        {user.name} <br />
-                                        {user.email}
-                                    </div>}>
+                                    <Tippy content={<User />}>
                                         <div className="setuser">
-                                            {/* <i class="fa-solid fa-user"></i> */}
                                             <img src={user.picture} width={50} />
                                         </div>
                                     </Tippy>
