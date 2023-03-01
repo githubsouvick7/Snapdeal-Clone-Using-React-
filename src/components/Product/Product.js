@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { CartContext } from '../Context/Context';
 import { useAuth0 } from "@auth0/auth0-react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Product.css'
 
 
@@ -36,6 +38,11 @@ const Product = () => {
                             const fullName = title.substring(0, 20);
                             const Added = () => {
                                 disp({ type: 'ADD', payload: item })
+                                toast.success("Added . . .", {
+                                    position: "bottom-center",
+                                    autoClose: 2000,
+                                    theme: "light",
+                                })
                             }
                             return (
                                 <>
@@ -48,10 +55,18 @@ const Product = () => {
                                             <h5>{fullName}</h5>
                                             <p>RS : ${price}</p>
                                             {
-                                                isAuthenticated ? (<button className="btn" onClick={Added}>
-                                                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                                                </button>) : (
-                                                    <button className="btn" onClick={() => alert("Please Login")}>
+                                                isAuthenticated ? (
+                                                    <button className="btn" onClick={Added}>
+                                                        Add To Cart <i class="fa-solid fa-cart-shopping"></i>
+                                                    </button>
+                                                ) : (
+                                                    <button className="btn" onClick={() => {
+                                                        toast.warning('Please Login ', {
+                                                            position: "top-center",
+                                                            autoClose: 2000,
+                                                            theme: "dark",
+                                                        });
+                                                    }}>
                                                         Add To Cart <i class="fa-solid fa-cart-shopping"></i>
                                                     </button>
                                                 )
@@ -64,6 +79,7 @@ const Product = () => {
                     }
                 </div>
             </div>
+            <ToastContainer />
         </>
     )
 }

@@ -3,6 +3,8 @@ import { useParams, NavLink } from 'react-router-dom'
 import { useContext } from 'react';
 import { CartContext } from '../Context/Context';
 import { useAuth0 } from "@auth0/auth0-react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../Navbar/Navbar';
 import './FullData.css'
 
@@ -77,13 +79,25 @@ const FullData = () => {
                             {
                                 isAuthenticated ? (
                                     <>
-                                        <button className="btn" onClick={() => dispatch({ type: 'ADD', payload: allData })}>
+                                        <button className="btn" onClick={() => {
+                                            dispatch({ type: 'ADD', payload: allData })
+                                            toast.success("Added. . .", {
+                                                position: "top-center",
+                                                autoClose: 2000,
+                                                theme: "light",
+                                            })
+                                        }}>
                                             Add to Cart<i class="fa-solid fa-cart-shopping"></i>
                                         </button>
                                     </>
                                 ) : (
                                     <>
-                                        <button className="btn" onClick={() => alert("please Login . . . .")}>
+                                        <button className="btn" onClick={() =>
+                                            toast.warning("Please Login . . . ", {
+                                                position: "top-center",
+                                                autoClose: 2000,
+                                                theme: "light",
+                                            })}>
                                             Add to Cart<i class="fa-solid fa-cart-shopping"></i>
                                         </button>
                                     </>
@@ -102,7 +116,12 @@ const FullData = () => {
 
                                 ) : (
                                     <>
-                                        <button className='btn' onClick={() => alert("Please Login . . .")}>Buy Now for $ {price}</button>
+                                        <button className='btn' onClick={() =>
+                                            toast.warning("Please Login . . .", {
+                                                position: "top-center",
+                                                autoClose: 2000,
+                                                theme: "light",
+                                            })}>Buy Now for $ {price}</button>
                                     </>
                                 )
                             }
@@ -110,6 +129,7 @@ const FullData = () => {
                     </div>
                 </div>
             </section>
+            <ToastContainer />
         </>
     );
 }

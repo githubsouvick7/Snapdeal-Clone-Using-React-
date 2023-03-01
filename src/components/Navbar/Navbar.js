@@ -1,16 +1,22 @@
-import React from 'react'
-import './Navbar.css'
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
+import { ToastContainer, toast } from 'react-toastify';
+import { CartContext } from '../Context/Context';
 import User from './User';
+import Tippy from '@tippyjs/react';
+import 'react-toastify/dist/ReactToastify.css';
+import 'tippy.js/dist/tippy.css';
+import './Navbar.css'
 
 
 const Navbar = () => {
     const { loginWithRedirect } = useAuth0();
     const { logout } = useAuth0();
     const { isAuthenticated, user } = useAuth0();
+
+    const globalstate = useContext(CartContext);
+    const state = globalstate.state;
 
     return (
         <>
@@ -30,6 +36,7 @@ const Navbar = () => {
                                     <div className="cartcomp">
                                         <div className="c">
                                             <i class="fa-solid fa-cart-shopping"></i>
+                                            <h5>{state.length}</h5>
                                         </div>
                                     </div>
                                 </Tippy>
@@ -38,7 +45,10 @@ const Navbar = () => {
                         {
                             isAuthenticated ? (
                                 <>
-                                    <button className='set' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                                    <button className='set' onClick={() => {
+                                        logout({ logoutParams: { returnTo: window.location.origin } })
+                                        toast("Logout Successful");
+                                    }}>
                                         Log Out
                                     </button>
                                     <Tippy content={<User />}>
@@ -49,7 +59,10 @@ const Navbar = () => {
                                 </>
                             ) : (
                                 <>
-                                    <button className='set' onClick={() => loginWithRedirect()}>
+                                    <button className='set' onClick={() => {
+                                        loginWithRedirect();
+                                    }
+                                    }>
                                         Login
                                     </button>
                                     <Tippy content={<p>No User Found</p>}>
@@ -66,6 +79,7 @@ const Navbar = () => {
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </section>
+            <ToastContainer />
         </>
     )
 }

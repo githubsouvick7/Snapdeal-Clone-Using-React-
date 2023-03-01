@@ -53,6 +53,7 @@
     color: white;
     font-size: 18px;
     cursor: pointer;
+    position: relative;
 }
 
 .cart span {
@@ -133,6 +134,15 @@
 
 .menu {
     display: none;
+}
+
+.cart a {
+    text-decoration: none;
+}
+
+.cartcomp .c h5 {
+    text-align: center;
+    margin-top: 5px;
 }
 
 @media (max-width: 1400px) {

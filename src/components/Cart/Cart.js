@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState, useReducer } from 'react'
 import { CartContext } from '../Context/Context'
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Cart.css'
 
 
@@ -31,11 +33,12 @@ const Cart = () => {
     let count = 0;
     useEffect(() => {
         state.map((i) => {
-            count += i.price;
+            const gst = (i.price * 18) / 100;
+            count += gst + i.price;
+
         })
         setTotalPrice(count);
     }, [state])
-
 
     return (
         <>
@@ -44,23 +47,15 @@ const Cart = () => {
                     <img src="https://i3.sdlcdn.com/img/snapdeal/darwin/logo/sdLatestLogo.svg" />
                 </div>
             </div>
-            <div className="totalall">
-                <div className="total">
-                    <div className="secondnav">
-                        <NavLink to='/'>
-                            <i class="fa-solid fa-arrow-left"></i>
-                        </NavLink>
-                    </div>
-                    <div className="tt">
-                        <p className='t'>Total - </p>
-                        <p className='t'> ${totalPrice}</p>
-                    </div>
-                </div>
+            <div className="secondnav">
+                <NavLink to='/'>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </NavLink>
             </div>
-
             <div className='container my-5'>
                 {
                     state.map((item) => {
+                        const gst = (item.price * 18) / 100;
                         return (
                             <div className="onecomp">
                                 <img src={item.image} alt="snapdeal" />
@@ -68,6 +63,7 @@ const Cart = () => {
                                     <h4>{item.title}</h4>
                                     <p>Rating : {item.rating.rate}</p>
                                     <h4>${item.price}</h4>
+                                    <h4> + 18 % GST, Total Price = ${gst + item.price}</h4>
                                 </div>
                                 <div className="count">
                                     <button onClick={() => dispatch1({ type: 'INCREMENT', payload: item })}>+</button>
@@ -81,7 +77,6 @@ const Cart = () => {
                         )
                     })
                 }
-
                 {
                     isAuthenticated ? (
                         <>
@@ -92,12 +87,16 @@ const Cart = () => {
 
                     ) : (
                         <>
-                            <button className='btn' onClick={() => alert("Please Login . . .")}>Buy Now for $ {totalPrice}</button>
+                            <button className='btn' onClick={() => toast.warning('Please Login ', {
+                                position: "top-center",
+                                autoClose: 2000,
+                                theme: "dark",
+                            })}>Buy Now for $ {totalPrice}</button>
                         </>
                     )
                 }
             </div>
-
+            <ToastContainer />
         </>
     )
 }
