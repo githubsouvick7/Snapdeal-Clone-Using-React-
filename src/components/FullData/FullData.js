@@ -75,7 +75,7 @@ const FullData = () => {
                         <div className="allbtn">
                             <h5>Delivery Charge - $10 for fast delivery (Click to Add)
                                 <input type="checkbox" className='check' checked={isChecked} onClick={checkBox} /></h5>
-                            {price > 0 && <h5>Total Price: $ {price}</h5>}
+                            {price > 0 && <h5>Total Price: $ {price.toFixed(2)}</h5>}
                             {
                                 isAuthenticated ? (
                                     <>
@@ -110,7 +110,7 @@ const FullData = () => {
                                 isAuthenticated ? (
                                     <>
                                         <NavLink to='/buyNow'>
-                                            <button className='btn'>Buy Now for $ {price}</button>
+                                            <button className='btn'>Buy Now for ${price.toFixed(2)}</button>
                                         </NavLink>
                                     </>
 
@@ -121,7 +121,7 @@ const FullData = () => {
                                                 position: "top-center",
                                                 autoClose: 2000,
                                                 theme: "light",
-                                            })}>Buy Now for $ {price}</button>
+                                            })}>Buy Now for ${price.toFixed(2)}</button>
                                     </>
                                 )
                             }

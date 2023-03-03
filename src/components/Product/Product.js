@@ -39,7 +39,7 @@ const Product = () => {
                             const Added = () => {
                                 disp({ type: 'ADD', payload: item })
                                 toast.success("Added . . .", {
-                                    position: "bottom-center",
+                                    position: "top-center",
                                     autoClose: 2000,
                                     theme: "light",
                                 })
@@ -64,7 +64,7 @@ const Product = () => {
                                                         toast.warning('Please Login ', {
                                                             position: "top-center",
                                                             autoClose: 2000,
-                                                            theme: "dark",
+                                                            theme: "light",
                                                         });
                                                     }}>
                                                         Add To Cart <i class="fa-solid fa-cart-shopping"></i>
