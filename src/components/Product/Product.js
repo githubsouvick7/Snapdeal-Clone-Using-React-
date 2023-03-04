@@ -18,7 +18,14 @@ const Product = () => {
     const getData = () => {
         fetch(api)
             .then(res => res.json())
-            .then(data => seteData(data))
+            .then(data => {
+                data.forEach(element => {
+                    element.quantity = 1;
+                });
+                console.log(data);
+                seteData(data)
+            })
+
     }
     useEffect(() => {
         getData();
@@ -43,6 +50,7 @@ const Product = () => {
                                     autoClose: 2000,
                                     theme: "light",
                                 })
+
                             }
                             return (
                                 <>

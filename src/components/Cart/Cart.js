@@ -7,26 +7,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import './Cart.css'
 
 const Cart = () => {
+
     const GlobalState = useContext(CartContext);
     const state = GlobalState.state;
     const dispatch = GlobalState.dispatch;
+
+
     const [totalPrice, setTotalPrice] = useState(0);
     const { isAuthenticated, user } = useAuth0();
     const [Pcount, setPcount] = useState(1);
-
-    // const [state1, dispatch1] = useReducer(reducer, { count: 1 });
-    // function reducer(state, action) {
-    //     switch (action.type) {
-    //         case 'INCREMENT':
-    //             return { count: state.count + 1 };
-    //         case 'DECREMENT':
-    //             return { count: state.count - 1 };
-    //         default:
-    //             throw new Error();
-    //     }
-    // }
-    // onClick={() => dispatch1({ type: 'INCREMENT', payload: item })}
-    // onClick={() => dispatch1({ type: 'DECREMENT', payload: item })}
 
     let count = 0;
     useEffect(() => {
@@ -36,6 +25,13 @@ const Cart = () => {
         })
         setTotalPrice(count);
     }, [state])
+
+
+    const downCount = () => {
+        if (Pcount !== 1) {
+            setPcount(Pcount - 1);
+        }
+    }
 
     return (
         <>
@@ -72,18 +68,8 @@ const Cart = () => {
             <div className='container my-5'>
                 {
                     state.map((item, index) => {
-
-                        const upCount = () => {
-                            setPcount(Pcount + 1)
-                        }
-                        const downCount = () => {
-                            if (Pcount !== 1) {
-                                setPcount(Pcount - 1);
-                            }
-                        }
-
                         const gst = (item.price * 18) / 100;
-                        const mainPrice = (gst + item.price) * Pcount;
+                        const mainPrice = (gst + item.price) * item.quantity;
 
                         return (
                             <div key={index} className="onecomp">
@@ -91,13 +77,19 @@ const Cart = () => {
                                 <div className="desccomp">
                                     <h4>{item.title}</h4>
                                     <p>Rating : {item.rating.rate}</p>
-                                    <h4>${item.price * Pcount}</h4>
+                                    <h4>${item.price * item.quantity}</h4>
                                     <h4> + 18 % GST, Total Price = ${mainPrice.toFixed(2)}</h4>
                                 </div>
                                 <div className="count">
-                                    <button onClick={upCount}>+</button>
-                                    <span>{Pcount}</span>
-                                    <button onClick={downCount}>-</button>
+                                    <button onClick={() => dispatch({ type: 'INCREASE', payload: item })}>+</button>
+                                    <span>{item.quantity}</span>
+                                    <button onClick={() => {
+                                        if (item.quantity > 1) {
+                                            dispatch({ type: 'DECREASE', payload: item })
+                                        } else {
+                                            dispatch({ type: 'REMOVE', payload: item })
+                                        }
+                                    }}>-</button>
                                 </div>
                                 <h1 className='dele' onClick={() => dispatch({ type: 'REMOVE', payload: item })}>
                                     <i class="fa-solid fa-trash"></i>
