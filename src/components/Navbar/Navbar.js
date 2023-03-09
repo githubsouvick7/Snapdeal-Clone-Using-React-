@@ -30,18 +30,43 @@ const Navbar = () => {
                         <button className='onebtn'><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                     </div>
                     <div className="extra">
-                        <div className="cart">
-                            <NavLink to='./cart'>
-                                <Tippy content={<p>Cart</p>}>
-                                    <div className="cartcomp">
-                                        <div className="c">
-                                            <i class="fa-solid fa-cart-shopping"></i>
-                                            <h5>{state.length}</h5>
-                                        </div>
+                        {
+                            isAuthenticated ? (
+                                <>
+                                    <div className="cart">
+                                        <NavLink to='./cart'>
+                                            <Tippy content={<p>Cart</p>}>
+                                                <div className="cartcomp">
+                                                    <div className="c">
+                                                        <i class="fa-solid fa-cart-shopping"></i>
+                                                        <h5>{state.length}</h5>
+                                                    </div>
+                                                </div>
+                                            </Tippy>
+                                        </NavLink>
                                     </div>
-                                </Tippy>
-                            </NavLink>
-                        </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="cart" onClick={() => {
+                                        toast.warn("Please Login . . ", {
+                                            position: "top-center",
+                                            autoClose: 2000,
+                                            theme: "light",
+                                        })
+                                    }}>
+                                        <Tippy content={<p>Cart</p>}>
+                                            <div className="cartcomp">
+                                                <div className="c">
+                                                    <i class="fa-solid fa-cart-shopping"></i>
+                                                    <h5>{state.length}</h5>
+                                                </div>
+                                            </div>
+                                        </Tippy>
+                                    </div>
+                                </>
+                            )
+                        }
                         {
                             isAuthenticated ? (
                                 <>

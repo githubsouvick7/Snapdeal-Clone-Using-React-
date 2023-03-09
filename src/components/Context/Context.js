@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer, useState } from "react";
-import { act } from "react-dom/test-utils";
+import { createContext, useReducer } from "react";
 
 export const CartContext = createContext();
 
@@ -15,6 +14,7 @@ export const Context = (props) => {
                     localStorage.setItem('cartValue', JSON.stringify(newCartState))
                     return newCartState;
                 }
+
             case 'REMOVE':
                 const tempstate = state.filter((item) => item.id !== action.payload.id)
                 localStorage.setItem('cartValue', JSON.stringify(tempstate))

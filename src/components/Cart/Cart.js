@@ -14,7 +14,7 @@ const Cart = () => {
 
 
     const [totalPrice, setTotalPrice] = useState(0);
-    const { isAuthenticated, user } = useAuth0();
+    const { isAuthenticated } = useAuth0();
     const [Pcount, setPcount] = useState(1);
 
     let count = 0;
@@ -25,13 +25,6 @@ const Cart = () => {
         })
         setTotalPrice(count);
     }, [state])
-
-
-    const downCount = () => {
-        if (Pcount !== 1) {
-            setPcount(Pcount - 1);
-        }
-    }
 
     return (
         <>
@@ -50,17 +43,16 @@ const Cart = () => {
                     isAuthenticated ? (
                         <>
                             <NavLink to={{ pathname: '/buyNow', state: { price: totalPrice } }}>
-                                <button className='btn'>Buy Now for $ {(totalPrice * Pcount).toFixed(2)}</button>
+                                <button className='btn'>Buy Now</button>
                             </NavLink>
                         </>
-
                     ) : (
                         <>
                             <button className='btn' onClick={() => toast.warning('Please Login ', {
                                 position: "top-center",
                                 autoClose: 2000,
                                 theme: "light",
-                            })}>Buy Now for $ {totalPrice}</button>
+                            })}>Buy Now</button>
                         </>
                     )
                 }
