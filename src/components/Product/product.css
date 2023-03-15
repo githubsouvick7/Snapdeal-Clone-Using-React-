@@ -37,14 +37,11 @@
     border: 1px solid grey;
     border-radius: 8px;
     padding: 18px;
-    transform: scale(1);
     transition: .5s;
-    box-shadow: 2px 2px 4px gray;
 }
 
 .compcard:hover {
-    transform: scale(1.1);
-    box-shadow: 7px 7px 12px gray;
+    box-shadow: 5px 5px 9px gray;
 }
 
 .wish {

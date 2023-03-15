@@ -12,10 +12,9 @@ const Cart = () => {
     const state = GlobalState.state;
     const dispatch = GlobalState.dispatch;
 
-
     const [totalPrice, setTotalPrice] = useState(0);
     const { isAuthenticated } = useAuth0();
-    const [Pcount, setPcount] = useState(1);
+
 
     let count = 0;
     useEffect(() => {
@@ -56,6 +55,7 @@ const Cart = () => {
                         </>
                     )
                 }
+                <button className='btn'>Remove All</button>
             </div>
             <div className='container my-5'>
                 {

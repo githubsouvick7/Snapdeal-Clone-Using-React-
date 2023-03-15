@@ -22,7 +22,9 @@ const Navbar = () => {
         <>
             <section className='section-navbar'>
                 <div className="logo">
-                    <img src="https://i3.sdlcdn.com/img/snapdeal/darwin/logo/sdLatestLogo.svg" alt="snapdeal" />
+                    <NavLink to='/'>
+                        <img src="https://i3.sdlcdn.com/img/snapdeal/darwin/logo/sdLatestLogo.svg" alt="snapdeal" />
+                    </NavLink>
                 </div>
                 <div className="allmenu">
                     <div className="search">
