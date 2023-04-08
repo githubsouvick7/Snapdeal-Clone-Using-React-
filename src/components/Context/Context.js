@@ -38,7 +38,11 @@ export const Context = (props) => {
                         return item;
                     }
                 });
-                return tempDownCount
+                return tempDownCount;
+
+            case "REMOVEALL":
+                localStorage.clear();
+                return [];
 
             default: return state;
         }

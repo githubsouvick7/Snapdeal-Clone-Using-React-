@@ -32,6 +32,7 @@ const Product = () => {
     }, [])
 
     const GlobalState = useContext(CartContext);
+    const state = GlobalState.state;
     const disp = GlobalState.dispatch;
     console.log(GlobalState);
 
@@ -50,8 +51,16 @@ const Product = () => {
                                     autoClose: 2000,
                                     theme: "light",
                                 })
-
                             }
+                            const Remove = () => {
+                                disp({ type: 'REMOVE', payload: item })
+                                toast.success("Removed . . .", {
+                                    position: "top-center",
+                                    autoClose: 2000,
+                                    theme: "light",
+                                })
+                            }
+
                             return (
                                 <>
                                     <div className='compcard'>
@@ -64,9 +73,19 @@ const Product = () => {
                                             <p>RS : ${price}</p>
                                             {
                                                 isAuthenticated ? (
-                                                    <button className="btn" onClick={Added}>
-                                                        Add To Cart <i class="fa-solid fa-cart-shopping"></i>
-                                                    </button>
+                                                    <>
+                                                        {
+                                                            state.some((i) => i.id === item.id) ? (
+                                                                <button className="btn" onClick={Remove}>
+                                                                    Remove from Cart <i class="fa-solid fa-xmark"></i>
+                                                                </button>
+                                                            ) : (
+                                                                <button className="btn" onClick={Added}>
+                                                                    Add To Cart <i class="fa-solid fa-cart-shopping"></i>
+                                                                </button>
+                                                            )
+                                                        }
+                                                    </>
                                                 ) : (
                                                     <button className="btn" onClick={() => {
                                                         toast.warning('Please Login ', {

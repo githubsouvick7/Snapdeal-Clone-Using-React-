@@ -1,0 +1,83 @@
+.coupon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 4px;
+
+}
+
+.coupon h5 i {
+    font-size: 20px;
+}
+
+.payment {
+    width: 400px;
+    border: 2px solid #e40046;
+    padding: 4px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 10px rgb(168, 166, 166);
+}
+
+.mrp {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+
+}
+
+.mrp .p {
+    color: #e40046;
+}
+
+.paydetails {
+    padding: 6px;
+}
+
+.paydetails h5 {
+    border-bottom: 1px solid #e40046;
+    padding: 4px;
+}
+
+.Final {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+
+}
+
+.Final .p {
+    color: #e40046;
+}
+
+.order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #e40046;
+    padding: 12px 0;
+}
+
+.order .bt {
+    width: 90%;
+    background-color: #e40046;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 7px 12px;
+    margin-right: 30px;
+    border: 2px solid #ffffff;
+    transition: .3s;
+}
+
+.order .bt:hover {
+    border: 2px solid #e40046;
+    box-shadow: 4px 4px 8px rgb(201, 200, 200);
+    color: #fff;
+}
+
+@media (max-width: 720px) {
+
+    .payment {
+        width: 340px;
+    }
+}
