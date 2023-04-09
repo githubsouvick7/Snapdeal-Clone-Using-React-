@@ -13,7 +13,6 @@ const Home = () => {
             <div className="maincomp">
                 <Product />
             </div>
-
         </>
     )
 }

@@ -6,6 +6,7 @@
     width: 70%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: 2px solid gray;
     padding: 20px;
     margin: 12px;
@@ -23,7 +24,6 @@
 
 .dele {
     margin-right: 30px;
-    margin-top: 40px;
     cursor: pointer;
 }
 
@@ -85,19 +85,23 @@
 .count {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    width: 150px;
 }
 
 .count button {
-    width: 50px;
-    height: 50px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    background-color: #b1b1b1;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 2px 3px 6px rgb(196, 195, 195);
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 12px;
     font-size: 22px;
+    color: #e40046;
 }
 
 .cartpage {

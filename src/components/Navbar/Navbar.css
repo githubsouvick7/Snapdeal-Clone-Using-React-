@@ -78,7 +78,7 @@
 
 .set:hover {
     background-color: #e40046;
-    border: 2px solid rgb(52, 39, 173);
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .cart span {
@@ -110,7 +110,7 @@
 
 .c:hover {
     background-color: #e40046;
-    border: 2px solid rgb(52, 39, 173);
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .setuser {
