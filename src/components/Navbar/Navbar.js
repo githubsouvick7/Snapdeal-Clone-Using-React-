@@ -17,6 +17,7 @@ const Navbar = () => {
 
     const globalstate = useContext(CartContext);
     const state = globalstate.state;
+    const dispatch = globalstate.dispatch;
 
     return (
         <>
@@ -37,50 +38,24 @@ const Navbar = () => {
                                 <>
                                     <div className="cart">
                                         <NavLink to='./cart'>
-                                            <Tippy content={<p>Cart</p>}>
-                                                <div className="cartcomp">
-                                                    <div className="c">
-                                                        <i class="fa-solid fa-cart-shopping"></i>
-                                                        <h5>{state.length}</h5>
-                                                    </div>
-                                                </div>
-                                            </Tippy>
-                                        </NavLink>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div className="cart" onClick={() => {
-                                        toast.warn("Please Login . . ", {
-                                            position: "top-center",
-                                            autoClose: 2000,
-                                            theme: "light",
-                                        })
-                                    }}>
-                                        <Tippy content={<p>Cart</p>}>
                                             <div className="cartcomp">
                                                 <div className="c">
                                                     <i class="fa-solid fa-cart-shopping"></i>
                                                     <h5>{state.length}</h5>
                                                 </div>
                                             </div>
-                                        </Tippy>
+                                        </NavLink>
                                     </div>
-                                </>
-                            )
-                        }
-                        {
-                            isAuthenticated ? (
-                                <>
                                     <button className='set' onClick={() => {
                                         logout({ logoutParams: { returnTo: window.location.origin } })
                                         toast("Logout Successful");
+                                        dispatch({ type: "REMOVEALL" })
                                     }}>
                                         Log Out
                                     </button>
                                     <Tippy content={<User />}>
                                         <div className="setuser">
-                                            <img src={user.picture} width={50} />
+                                            <img src={user.picture} width={50} alt='user' />
                                         </div>
                                     </Tippy>
                                 </>
