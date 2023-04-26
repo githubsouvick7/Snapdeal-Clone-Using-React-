@@ -74,6 +74,7 @@
         display: grid;
         grid-template-columns: auto;
         justify-content: start;
+
     }
 
     .compcard {
