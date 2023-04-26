@@ -103,14 +103,12 @@ const FullData = () => {
                                     </>
                                 )
                             }
-                            <NavLink to="/" className="back-btn">
-                                <button className="btn"><i class="fa-solid fa-arrow-left"></i> Go Back</button>
-                            </NavLink>
+
                             {
                                 isAuthenticated ? (
                                     <>
                                         <NavLink to='/buyNow'>
-                                            <button className='btn'>Buy Now for ${price.toFixed(2)}</button>
+                                            <button className='btn'>Buy Now ${price.toFixed(2)}</button>
                                         </NavLink>
                                     </>
 
@@ -121,10 +119,13 @@ const FullData = () => {
                                                 position: "top-center",
                                                 autoClose: 2000,
                                                 theme: "light",
-                                            })}>Buy Now for ${price.toFixed(2)}</button>
+                                            })}>Buy Now</button>
                                     </>
                                 )
                             }
+                            <NavLink to="/" className="back-btn">
+                                <button className="btn"><i class="fa-solid fa-arrow-left"></i> Go Back</button>
+                            </NavLink>
                         </div>
                     </div>
                 </div>

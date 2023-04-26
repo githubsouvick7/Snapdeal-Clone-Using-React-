@@ -1,6 +1,6 @@
 .section-navbar {
     background-color: #e40046;
-    width: 99.1vw;
+    width: 100vw;
     height: 75px;
     display: flex;
     align-items: center;
@@ -192,7 +192,7 @@
     .section-navbar {
         background-color: #e40046;
         width: 100vw;
-        height: 80px;
+        height: 60px;
         display: flex;
         align-items: center;
     }
@@ -224,6 +224,16 @@
 
     .setuser {
         margin-left: 0;
+    }
+
+    .cartcomp {
+        width: 70px;
+    }
+
+    .set {
+        width: 70px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
 
